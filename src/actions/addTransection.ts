@@ -30,7 +30,11 @@ const addTransaction = async (
   const amount: number = parseFloat(textAmount.toString());
 
   const { userId } = auth();
-  console.log(userId);
+
+  if (!userId) {
+    return { error: "Transaction not added" };
+  }
+
   try {
     const transactionData: TransactionData = await db.transection.create({
       data: {
