@@ -32,7 +32,7 @@ const addTransaction = async (
   const { userId } = auth();
 
   if (!userId) {
-    return { error: "Transaction not added" };
+    return { error: "User Not found" };
   }
 
   try {
